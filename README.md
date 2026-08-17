@@ -11,6 +11,12 @@
 
 ---
 
+## 📸 界面预览
+
+<p align="center">
+  <img src="1.png" alt="damo_link 界面" width="80%">
+</p>
+
 ## ✨ 功能特性
 
 | | 功能 | 说明 |
