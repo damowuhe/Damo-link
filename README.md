@@ -1,28 +1,32 @@
 <p align="center">
   <h1 align="center">🔌 damo_link</h1>
-  <p align="center">32 位单片机烧录工具 · 基于 probe-rs 的 Windows 图形化烧录器</p>
+  <p align="center">32 位单片机烧录工具 + 串口助手 · 基于 probe-rs 的 Windows 图形化工具</p>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white" alt="Windows">
   <img src="https://img.shields.io/badge/backend-probe--rs-ED8B00?style=flat-square" alt="probe-rs">
   <img src="https://img.shields.io/badge/gui-Slint-2379F4?style=flat-square" alt="Slint">
+  <img src="https://img.shields.io/badge/version-v2-2E8B57?style=flat-square" alt="v2">
 </p>
 
 ---
 
 ## 📸 界面预览
 
-<p align="center">
-  <img src="1.png" alt="damo_link 界面" width="80%">
-</p>
+| 烧录页 | 串口助手页 |
+|---|---|
+| <img src="png/1.png" alt="烧录页" width="100%"> | <img src="png/2.png" alt="串口助手页" width="100%"> |
 
 ## ✨ 功能特性
 
 | | 功能 | 说明 |
 |---|---|---|
+| 🧭 | **左侧栏双页导航** | 左侧栏「烧录」/「串口」一键切换 |
+| 🔌 | **串口调试页面** | 左侧接收区（等宽字体、本地回显、自动滚动、清空）+ 发送栏；右侧「串口连接」面板（端口枚举、波特率、打开/关闭、连接状态）；输入内容回车即发，行尾可选 |
+| 🪟 | **窗口自适应** | 窗口可自由缩放 / 最大化，布局自动填满 |
 | 🎨 | **三套主题** | 深色 / 米白色 / 白色，右上角齿轮一键切换 |
-| 💾 | **配置自动保存** | 芯片、主题、协议等改动自动记住，下次打开自动恢复 |
+| 💾 | **配置自动保存** | 芯片、主题、协议、固件路径、串口端口/波特率等改动自动记住，下次打开自动恢复 |
 | 🔍 | **探针自动枚举** | 自动发现 DAPLink / ST-Link / J-Link 等调试探针 |
 | 🧩 | **芯片三级级联** | 厂商 → 系列 → 型号，逐级筛选 |
 | ⚡ | **固件操作** | 烧录 / 校验 / 擦除 / 复位，烧录成功自动复位运行 |
@@ -32,7 +36,8 @@
 
 1. 下载本目录全部文件
 2. 运行 `damo_link.exe`
-3. 点「刷新探针」→ 选择芯片 → 选择固件 → 点「烧录 Flash」
+3. **烧录**：点「刷新探针」→ 选择芯片 → 选择固件 → 点「烧录 Flash」
+4. **串口调试**：点左侧「串口」→ 选端口和波特率 → 「打开串口」→ 在下方输入内容回车发送
 
 ## 📁 目录结构
 
@@ -41,6 +46,9 @@ damo_link/
 ├── damo_link.exe        # 主程序（GUI）
 ├── probe-rs/
 │   └── probe-rs.exe     # 烧录后端（子进程调用）
+├── png/
+│   ├── 1.png            # 烧录页界面预览
+│   └── 2.png            # 串口助手页界面预览
 ├── README.md
 └── .gitignore
 ```
