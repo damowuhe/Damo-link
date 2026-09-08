@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white" alt="Windows">
   <img src="https://img.shields.io/badge/backend-probe--rs-ED8B00?style=flat-square" alt="probe-rs">
   <img src="https://img.shields.io/badge/gui-Slint-2379F4?style=flat-square" alt="Slint">
-  <img src="https://img.shields.io/badge/version-v2-2E8B57?style=flat-square" alt="v2">
+  <img src="https://img.shields.io/badge/version-v2.1-2E8B57?style=flat-square" alt="v2.1">
 </p>
 
 ---
@@ -29,6 +29,7 @@
 | 💾 | **配置自动保存** | 芯片、主题、协议、固件路径、串口端口/波特率等改动自动记住，下次打开自动恢复 |
 | 🔍 | **探针自动枚举** | 自动发现 DAPLink / ST-Link / J-Link 等调试探针 |
 | 🧩 | **芯片三级级联** | 厂商 → 系列 → 型号，逐级筛选 |
+| 🇨🇳 | **华大 HC32F460** | HDSC HC32F460 全系列 9 个型号（J/K/P 封装，256K/512K），官方 CMSIS 闪存算法已打包进 exe，开箱即用 |
 | ⚡ | **固件操作** | 烧录 / 校验 / 擦除 / 复位，烧录成功自动复位运行 |
 | 📜 | **实时日志** | probe-rs 输出流式显示、自动滚底、按状态着色 |
 
@@ -57,3 +58,16 @@ damo_link/
 
 - 烧录后端 `probe-rs\probe-rs.exe` 需与主程序保持同一目录结构，否则可在「设置」中手动指定路径
 - 首次运行后会在同目录生成 `damo_link_config.json` 保存你的设置（该文件不随仓库分发）
+
+## 📋 更新记录
+
+### v2.1
+
+- 🆕 **新增华大半导体 HC32F460 系列烧录支持**：芯片列表出现「HDSC（华大半导体）→ HC32F460-Series」，共 9 个型号（HC32F460JCTA / JETA / JEUA / KCTA / KETA / KEUA / PCTB / PEHB / PETB）；基于 HDSC 官方 CMSIS Pack 的闪存算法（256K / 512K / OTP），已内嵌进 exe，无需任何额外配置文件
+- 🎨 **全套更换 DAMO LINK 新图标**：exe 文件图标、窗口标题栏图标、任务栏图标
+- 🔧 修复交叉编译（WSL → windows-gnu）时 exe 图标从未被嵌入的问题
+- 📦 单文件化：HC32F460 芯片描述编译期内嵌，运行时自动释放，发布只需一个 exe
+
+### v2
+
+- 用 Slint 重写界面（原生 GUI）；串口调试页面、左侧栏双页导航、窗口自适应缩放
